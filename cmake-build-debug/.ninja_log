@@ -1,0 +1,14 @@
+# ninja log v5
+4	555	1708397880152305359	CMakeFiles/khatri_shiva_prog3csc402.dir/test.cpp.o	ee0a0863c97057b
+820	995	1708396593740912775	khatri_shiva_prog3csc402	f4824cba11c12942
+4	555	1708397880152309151	CMakeFiles/khatri_shiva_prog3csc402.dir/main.cpp.o	4d9e839efc312e13
+16	780	1708396276141420312	CMakeFiles/khatri_shiva_prog3csc402.dir/OrderedSet.cpp.o	a69746487a199ed9
+4	820	1708396593563861180	CMakeFiles/khatri_shiva_prog3csc402.dir/mySet.cpp.o	ecf816941ddfc7d
+0	61	1708397963256842732	build.ninja	7d68ba9bc52bd7e1
+4	368	1708397963618290449	khatri_shiva_prog3csc402	f4824cba11c12942
+15	746	1708399415380246677	CMakeFiles/khatri_shiva_prog3csc402.dir/main.cpp.o	4d9e839efc312e13
+746	900	1708399415535047988	khatri_shiva_prog3csc402	f4824cba11c12942
+4	724	1708400451364418288	CMakeFiles/khatri_shiva_prog3csc402.dir/main.cpp.o	4d9e839efc312e13
+724	878	1708400451519452906	khatri_shiva_prog3csc402	f4824cba11c12942
+5	710	1708400680891636059	CMakeFiles/khatri_shiva_prog3csc402.dir/main.cpp.o	4d9e839efc312e13
+710	866	1708400681048772937	khatri_shiva_prog3csc402	f4824cba11c12942

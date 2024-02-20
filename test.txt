@@ -1,0 +1,175 @@
+#include <iostream>
+#include <fstream>
+#include "mySet.h"
+#include "OrderedSet.h"
+
+using namespace std;
+
+int main() {
+    // Declare appropriate variables
+    mySet S1, S2, S3, S4, S5, S6;
+    OrderedSet OS1, OS2, OS3, OS4, OS5, OS6;
+
+    // Prompt the user for a path to an input file
+    string inputFilePath1, inputFilePath2, inputFilePath3, inputFilePath4;
+    cout << "Please enter a path to an input file: ";
+    cin >> inputFilePath1;
+
+    // Open the first input file
+    ifstream inputFile1(inputFilePath1);
+    if (!inputFile1.is_open()) {
+        cout << "Error: Unable to open input file " << inputFilePath1 << endl;
+        return 1;
+    }
+
+    // Read integers from the first input file and insert into S1
+    int num;
+    while (inputFile1 >> num) {
+        S1.addelt(num);
+    }
+    inputFile1.close();
+
+    // Prompt the user for a path to a second input file
+    cout << "Please enter a path to a second input file: ";
+    cin >> inputFilePath2;
+
+    // Open the second input file
+    ifstream inputFile2(inputFilePath2);
+    if (!inputFile2.is_open()) {
+        cout << "Error: Unable to open input file " << inputFilePath2 << endl;
+        return 1;
+    }
+
+    // Read integers from the second input file and insert into S2
+    while (inputFile2 >> num) {
+        S2.addelt(num);
+    }
+    inputFile2.close();
+
+    // Print out the contents of S1, S2, and S3
+    cout << "BEFORE OPERATIONS" << endl;
+    cout << "MySet S1 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S1 << endl;
+    cout << "MySet S2 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S2 << endl;
+    cout << "MySet S3 Contents" << endl;
+    cout << "----------------" << endl;
+    if (S3.isempty()) {
+        cout << "Set is EMPTY" << endl;
+    } else {
+        cout << S3 << endl;
+    }
+
+    // Assign into mySet S3 the Union of S1 and S2
+    S3 = S1.Union(S2);
+
+    // Print out S3, S1, and S2 after Union operation
+    cout << "After UNION Operation of S1 and S2" << endl;
+    cout << "MySet S3 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S3 << endl;
+    cout << "MySet S1 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S1 << endl;
+    cout << "MySet S2 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S2 << endl;
+
+    // Assign into S4 the Intersection of S1 and S2
+    S4 = S1.Intersection(S2);
+
+    // Print out S4, S1, and S2 after Intersection operation
+    cout << "After INTERSECTION Operation of S1 and S2" << endl;
+    cout << "MySet S4 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S4 << endl;
+    cout << "MySet S1 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S1 << endl;
+    cout << "MySet S2 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S2 << endl;
+
+    // Assign into S5 the Difference of S1 and S2
+    S5 = S1.Difference(S2);
+
+    // Print out S5, S1, and S2 after Difference operation
+    cout << "After DIFFERENCE Operation of S1 and S2" << endl;
+    cout << "MySet S5 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S5 << endl;
+    cout << "MySet S1 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S1 << endl;
+    cout << "MySet S2 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S2 << endl;
+
+    // Test the equivalence operator for mySet class
+    S6 = S1.Union(S3);
+    cout << "S3 and S6 ARE " << (S3 == S6 ? "" : "NOT ") << "EQUAL" << endl;
+    cout << "S1 and S6 ARE " << (S1 == S6 ? "" : "NOT ") << "EQUAL" << endl;
+
+    // Prompt user for a path to a third input file
+    cout << "Please enter a path to a third input file: ";
+    cin >> inputFilePath3;
+
+    // Open the third input file
+    ifstream inputFile3(inputFilePath3);
+    if (!inputFile3.is_open()) {
+        cout << "Error: Unable to open input file " << inputFilePath3 << endl;
+        return 1;
+    }
+
+    // Read integers from the third input file and attempt to add them to S1
+    while (inputFile3 >> num) {
+        bool result = S1.addelt(num);
+        if (result) {
+            cout << num << " was successfully added to S1" << endl;
+        } else {
+            cout << num << " ALREADY PRESENT IN S1" << endl;
+        }
+    }
+    inputFile3.close();
+
+    // Print the updated contents of S1 after adding elements from the third input file
+    cout << "S1 AFTER ADDITION of elements" << endl;
+    cout << "MySet S1 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S1 << endl;
+
+    // Prompt for file path and open a fourth file for input
+    cout << "Please enter a path to a fourth input file: ";
+    cin >> inputFilePath4;
+
+    // Open the fourth input file
+    ifstream inputFile4(inputFilePath4);
+    if (!inputFile4.is_open()) {
+        cout << "Error: Unable to open input file " << inputFilePath4 << endl;
+        return 1;
+    }
+
+    // Read integers from the fourth input file and attempt to delete them from S1
+    while (inputFile4 >> num) {
+        bool result = S1.deleteelt(num);
+        if (result) {
+            cout << num << " was successfully deleted from S1" << endl;
+        } else {
+            cout << num << " NOT FOUND" << endl;
+        }
+    }
+    inputFile4.close();
+
+    // Print the updated contents of S1 after deleting elements from the fourth input file
+    cout << "S1 AFTER DELETION of elements" << endl;
+    cout << "MySet S1 Contents" << endl;
+    cout << "----------------" << endl;
+    cout << S1 << endl;
+
+    // Repeat all operations for OrderedSet objects
+    // (similar to the operations performed on mySet objects)
+
+    return 0;
+}
